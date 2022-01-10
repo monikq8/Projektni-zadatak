@@ -75,13 +75,15 @@ figcaption {
 	text-align: left;
 }
 button {
-	margin-bottom: 15px;
+	margin: 16px 0px;
 	background-color: black;
 	color: #44d62c;
 	cursor: pointer;
 	padding: 12px 17px;
     border-radius: 4px;
 	font-size: 17px;
+	float: inline-end;
+	position: relative;
 }
 img {
 	width: 100%;
@@ -89,18 +91,62 @@ img {
 #pg {
     padding-left: 15px;
 }
-footer {
-	background-color: rgb(0, 0, 0);
-	padding: 0.1em;
-	clear: both;
+.gallery-image {
+	padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+} 
+.gallery-image img {
+height: 450px;
+width: 420px;
+transform: scale(1.0);
+transition: transform 0.4s ease;
 }
-footer p {
-	text-align: center;
-	margin: 0.4em;
-	font-size: 19px;
+.img-box {
+box-sizing: content-box;
+margin: 10px;
+height: 450px;
+width: 420px;
+overflow: hidden;
+display: inline-block;
+color: white;
+position: relative;
+background-color: white;
 }
-footer img {
-	width: 20px;
+.caption {
+position: absolute;
+bottom: 5px;
+left: 25px;
+opacity: 0.0;
+font-size: 30px;
+color: rgb(255, 255, 255);
+transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.transparent-box {
+height: 100px;
+width: 450px;
+background-color:rgba(0, 0, 0, 0);
+position: absolute;
+bottom: 0;
+left: 0;
+transition: background-color 0.3s ease;
+}
+.img-box:hover img { 
+transform: scale(1.1);
+}
+.img-box:hover .transparent-box {
+background-color:rgba(0, 0, 0, 0.5);
+}
+.img-box:hover .caption {
+transform: translateY(-20px);
+opacity: 1.0;
+}
+.img-box:hover {
+cursor: pointer;
+}
+.caption > p:nth-child(2) {
+font-size: 0.8em;
 }
 .pc {
 	float: right;
@@ -133,7 +179,6 @@ footer img {
 	position: relative;
 }
 hr {
-	margin: 1em;
 	border-color: #44d62c;
 	clear: both;
 	position: relative;
@@ -147,18 +192,7 @@ p {
 .pr {
 	padding-left: 18px;
 }
-#gallery figure {
-	padding: 0.3em;
-	margin: 0 1em 0.7em 1em;
-	float: left;
-	width: 22%;
-	border: 1px solid #44d62c;
-}
-#gallery figcaption {
-	font-size: 90%;
-	height: 60px;
-	text-align: center;
-}
+
 #news_gallery {
 	float: left;
 }
